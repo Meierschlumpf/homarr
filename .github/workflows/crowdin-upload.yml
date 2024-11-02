@@ -8,6 +8,8 @@ on:
 
 jobs:
   upload-crowdin-translations:
+    # Don't run this action if the downloaded translations are being pushed
+    if: "!contains(github.event.head_commit.message, 'chore(lang)')"
     runs-on: ubuntu-latest
 
     steps:

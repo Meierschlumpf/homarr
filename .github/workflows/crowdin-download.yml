@@ -29,6 +29,8 @@ jobs:
           pull_request_title: "chore(lang): updated translations from crowdin"
           pull_request_body: "New Crowdin translations by [Crowdin GH Action](https://github.com/crowdin/github-action)"
           pull_request_base_branch_name: "additional-language-support"
+          github_user_name: "Crowdin Homarr App"
+          github_user_email: "187122682+crowdin-homarr-app[bot]@users.noreply.github.com"
         env:
           GITHUB_TOKEN: ${{ steps.obtainToken.outputs.token }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
