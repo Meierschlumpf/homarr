@@ -37,22 +37,30 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       next: ${{ steps.read-semver.outputs.next || '' }}
-    if: ${{ github.event_name != 'workflow_dispatch' }}
+
     steps:
+      - run: echo "Skipping release for workflow_dispatch event"
+        if: github.event_name == 'workflow_dispatch'
       - uses: actions/checkout@v4
+        if: ${{ github.event_name != 'workflow_dispatch' }}
       - uses: actions/setup-node@v4
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         with:
           node-version: 22
       - run: npm i -g pnpm
+        if: ${{ github.event_name != 'workflow_dispatch' }}
       - name: Install dependencies
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         run: |
           pnpm install
       - name: Run Semantic Release
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pnpm run release
       - name: Read semver output
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         id: read-semver
         run: |
           echo "next=\"$(git describe --tags --abbrev=0)\"" >> "$GITHUB_OUTPUT"
