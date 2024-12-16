@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/Meierschlumpf/homarr/compare/v1.0.1...v1.0.2) (2024-12-16)
+
+### Bug Fixes
+
+* add hello ([ac37292](https://github.com/Meierschlumpf/homarr/commit/ac37292622fad186ba723440113ff588c040936e))
+
 ## [1.0.1](https://github.com/Meierschlumpf/homarr/compare/v1.0.0...v1.0.1) (2024-12-16)
 
 ### Bug Fixes
