@@ -45,25 +45,25 @@ jobs:
       - run: echo "Skipping release for workflow_dispatch event"
         if: env.SKIP_RELEASE
       - uses: actions/checkout@v4
-        if: !env.SKIP_RELEASE
+        if: env.SKIP_RELEASE == false
       - uses: actions/setup-node@v4
-        if: !env.SKIP_RELEASE
+        if: env.SKIP_RELEASE == false
         with:
           node-version: 22
       - run: npm i -g pnpm
-        if: !env.SKIP_RELEASE
+        if: env.SKIP_RELEASE == false
       - name: Install dependencies
-        if: !env.SKIP_RELEASE
+        if: env.SKIP_RELEASE == false
         run: |
           pnpm install
       - name: Run Semantic Release
-        if: !env.SKIP_RELEASE
+        if: env.SKIP_RELEASE == false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pnpm run release
       - name: Read semver output
-        if: !env.SKIP_RELEASE
+        if: env.SKIP_RELEASE == false
         id: read-semver
         run: |
           echo "next=\"$(git describe --tags --abbrev=0)\"" >> "$GITHUB_OUTPUT"
