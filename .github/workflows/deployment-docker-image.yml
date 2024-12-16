@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+      - dev
+      - beta
   workflow_dispatch:
     inputs:
       send-notifications:
@@ -36,16 +38,16 @@ jobs:
     name: Create tag and release
     runs-on: ubuntu-latest
     env:
-      SKIP_RELEASE: ${{ github.event_name == 'workflow_dispatch' }}
+      SKIP_RELEASE: ${{ github.event_name == 'workflow_dispatch' || github.ref_name == 'dev' }}
     outputs:
-      next: ${{ steps.read-semver.outputs.next || steps.next-fallback.outputs.next }}
+      version: ${{ steps.read-semver.outputs.version || steps.version-fallback.outputs.version }}
       skipped: ${{ env.SKIP_RELEASE }}
 
     steps:
       - run: echo "Skipping release for workflow_dispatch event"
         if: env.SKIP_RELEASE
-      - run: echo "next="$(echo ${{github.ref_name}} | sed 's/[^a-zA-Z0-9\-]/-/g') >> "$GITHUB_OUTPUT"
-        id: next-fallback
+      - run: echo "version="$(echo ${{github.ref_name}} | sed 's/[^a-zA-Z0-9\-]/-/g') >> "$GITHUB_OUTPUT"
+        id: version-fallback
         if: env.SKIP_RELEASE
       - uses: actions/checkout@v4
         if: env.SKIP_RELEASE == false
@@ -64,19 +66,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pnpm run release
+          pnpm release
       - name: Read semver output
         if: env.SKIP_RELEASE == false
         id: read-semver
         run: |
-          echo "next=\"$(git describe --tags --abbrev=0)\"" >> "$GITHUB_OUTPUT"
+          echo "version=\"$(git describe --tags --abbrev=0)\"" >> "$GITHUB_OUTPUT"
   deploy:
     name: Deploy docker image
     needs: release
     runs-on: ubuntu-latest
     env:
-      NEXT_VERSION: ${{ needs.release.outputs.next }}
-      DEPLOY_LATEST: ${{ !needs.release.outputs.skipped }}
+      NEXT_VERSION: ${{ needs.release.outputs.version }}
+      DEPLOY_LATEST: ${{ github.ref_name == 'main' }}
       PUSH_IMAGE: ${{ github.event_name != 'workflow_dispatch' || github.events.inputs.push-image == 'true' }}
     steps:
       - uses: actions/checkout@v4
