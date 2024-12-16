@@ -29,6 +29,7 @@ env:
 
 concurrency: production
 
+# TODO: Install node 22
 jobs:
   deploy:
     name: Deploy docker image
@@ -42,9 +43,10 @@ jobs:
       #  with:
       #    args: "Deployment of an image has been triggered: [run ${{ github.run_number }}](<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>)"
       - uses: actions/checkout@v4
-      - name: Install pnpm
-        run: |
-          npm install -g pnpm
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
       - name: Install dependencies
         run: |
           pnpm install
