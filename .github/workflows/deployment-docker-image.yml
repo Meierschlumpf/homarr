@@ -77,6 +77,7 @@ jobs:
     env:
       NEXT_VERSION: ${{ needs.release.outputs.next }}
       DEPLOY_LATEST: ${{ !needs.release.outputs.skipped }}
+      PUSH_IMAGE: ${{ github.event_name != 'workflow_dispatch' || github.events.inputs.push-image == 'true' }}
     steps:
       - name: Discord notification
         if: ${{ github.events.inputs.send-notifications != false }}
@@ -103,43 +104,21 @@ jobs:
           tags: |
             ${{ env.DEPLOY_LATEST == true && 'type=raw,value=latest' || null }}
             type=raw,value=${{ env.NEXT_VERSION }}
-      #- name: Build and push
-      #  id: buildPushAction
-      #  uses: docker/build-push-action@v6
-      #  if: ${{ github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null }}
-      #  with:
-      #    platforms: linux/amd64,linux/arm64
-      #    context: .
-      #    push: true
-      #    tags: ${{ steps.meta.outputs.tags }}
-      #    labels: ${{ steps.meta.outputs.labels }}
-      #    network: host
-      #  env:
-      #    SKIP_ENV_VALIDATION: true
-      #- name: Build
-      #  id: buildPushDryAction
-      #  uses: docker/build-push-action@v6
-      #  if: ${{ github.events.inputs.push-image == 'false' }}
-      #  with:
-      #    platforms: linux/amd64,linux/arm64
-      #    context: .
-      #    push: false
-      #    tags: ${{ steps.meta.outputs.tags }}
-      #    labels: ${{ steps.meta.outputs.labels }}
-      #    network: host
-      #  env:
-      #    SKIP_ENV_VALIDATION: true
-      #- name: Discord notification
-      #  if: ${{ github.events.inputs.send-notifications != false && (github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null) }}
-      #  env:
-      #    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      #  uses: Ilshidur/action-discord@master
-      #  with:
-      #    args: "Deployment of image has completed. Image ID is '${{ steps.buildPushAction.outputs.imageid }}'."
-      #- name: Discord notification
-      #  if: ${{ github.events.inputs.send-notifications != false && !(github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null) }}
-      #  env:
-      #    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      #  uses: Ilshidur/action-discord@master
-      #  with:
-      #    args: "Deployment of image has completed. Image ID is '${{ steps.buildPushDryAction.outputs.imageid }}'. This was a dry run."
+      - name: Build and push
+        id: buildPushAction
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/amd64,linux/arm64
+          context: .
+          push: ${{ env.PUSH_IMAGE}}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          network: host
+        env:
+          SKIP_ENV_VALIDATION: true
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "Deployment of image has completed. Image ID is '${{ steps.buildPushAction.outputs.imageid }}'. ${{ env.PUSH_IMAGE == true && '' || 'This was a dry run' }}"
