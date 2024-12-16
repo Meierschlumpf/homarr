@@ -34,85 +34,92 @@ jobs:
     name: Deploy docker image
     runs-on: ubuntu-latest
     steps:
-      - name: Discord notification
-        if: ${{ github.events.inputs.send-notifications != false }}
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: "Deployment of an image has been triggered: [run ${{ github.run_number }}](<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>)"
+      #- name: Discord notification
+      #  if: ${{ github.events.inputs.send-notifications != false }}
+      #  env:
+      #    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      #  uses: Ilshidur/action-discord@master
+      #  with:
+      #    args: "Deployment of an image has been triggered: [run ${{ github.run_number }}](<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>)"
       - uses: actions/checkout@v4
-      - name: Get Next Version
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+      - name: Install dependencies
+        run: |
+          cd tooling/semver && pnpm install
+      - name: Run Semantic Release
         id: semver
-        uses: ietf-tools/semver-action@v1
-        with:
-          token: ${{ github.token }}
-          branch: dev
-      - name: Discord notification
-        if: ${{ github.events.inputs.send-notifications != false }}
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: "Semver computed next tag to be ${{ steps.semver.outputs.next }}. Current is ${{ steps.semver.outputs.current }}. Building images..."
-      - name: Log in to the Container registry
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
-          tags: |
-            type=raw,value=alpha
-            type=raw,value=early-adopters
+        run: |
+          cd tooling/semver && pnpm run release
+      - name: Read semver output
+        run: |
+          echo "Next version: ${{ steps.semver.outputs.NEXT_RELEASE_VERSION }}"
+      #- name: Discord notification
+      #  if: ${{ github.events.inputs.send-notifications != false }}
+      #  env:
+      #    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      #  uses: Ilshidur/action-discord@master
+      #  with:
+      #    args: "Semver computed next tag to be ${{ steps.semver.outputs.next }}. Current is ${{ steps.semver.outputs.current }}. Building images..."
+      #- name: Log in to the Container registry
+      #  uses: docker/login-action@v3
+      #  with:
+      #    registry: ${{ env.REGISTRY }}
+      #    username: ${{ github.actor }}
+      #    password: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Set up QEMU
+      #  uses: docker/setup-qemu-action@v3
+      #- name: Set up Docker Buildx
+      #  uses: docker/setup-buildx-action@v3
+      #- name: Docker meta
+      #  id: meta
+      #  uses: docker/metadata-action@v5
+      #  with:
+      #    images: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
+      #    tags: |
+      #      type=raw,value=alpha
+      #      type=raw,value=early-adopters
       #          tags: |
       #            type=raw,value=latest
       #            type=raw,value=${{ steps.semver.outputs.next }}
-      - name: Build and push
-        id: buildPushAction
-        uses: docker/build-push-action@v6
-        if: ${{ github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null }}
-        with:
-          platforms: linux/amd64,linux/arm64
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          network: host
-        env:
-          SKIP_ENV_VALIDATION: true
-      - name: Build
-        id: buildPushDryAction
-        uses: docker/build-push-action@v6
-        if: ${{ github.events.inputs.push-image == 'false' }}
-        with:
-          platforms: linux/amd64,linux/arm64
-          context: .
-          push: false
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          network: host
-        env:
-          SKIP_ENV_VALIDATION: true
-      - name: Discord notification
-        if: ${{ github.events.inputs.send-notifications != false && (github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null) }}
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: "Deployment of image has completed. Image ID is '${{ steps.buildPushAction.outputs.imageid }}'."
-      - name: Discord notification
-        if: ${{ github.events.inputs.send-notifications != false && !(github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null) }}
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: "Deployment of image has completed. Image ID is '${{ steps.buildPushDryAction.outputs.imageid }}'. This was a dry run."
+      #- name: Build and push
+      #  id: buildPushAction
+      #  uses: docker/build-push-action@v6
+      #  if: ${{ github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null }}
+      #  with:
+      #    platforms: linux/amd64,linux/arm64
+      #    context: .
+      #    push: true
+      #    tags: ${{ steps.meta.outputs.tags }}
+      #    labels: ${{ steps.meta.outputs.labels }}
+      #    network: host
+      #  env:
+      #    SKIP_ENV_VALIDATION: true
+      #- name: Build
+      #  id: buildPushDryAction
+      #  uses: docker/build-push-action@v6
+      #  if: ${{ github.events.inputs.push-image == 'false' }}
+      #  with:
+      #    platforms: linux/amd64,linux/arm64
+      #    context: .
+      #    push: false
+      #    tags: ${{ steps.meta.outputs.tags }}
+      #    labels: ${{ steps.meta.outputs.labels }}
+      #    network: host
+      #  env:
+      #    SKIP_ENV_VALIDATION: true
+      #- name: Discord notification
+      #  if: ${{ github.events.inputs.send-notifications != false && (github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null) }}
+      #  env:
+      #    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      #  uses: Ilshidur/action-discord@master
+      #  with:
+      #    args: "Deployment of image has completed. Image ID is '${{ steps.buildPushAction.outputs.imageid }}'."
+      #- name: Discord notification
+      #  if: ${{ github.events.inputs.send-notifications != false && !(github.events.inputs.push-image == 'true' || github.events.inputs.push-image == null) }}
+      #  env:
+      #    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      #  uses: Ilshidur/action-discord@master
+      #  with:
+      #    args: "Deployment of image has completed. Image ID is '${{ steps.buildPushDryAction.outputs.imageid }}'. This was a dry run."

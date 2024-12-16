@@ -20,6 +20,8 @@
     "lint": "turbo lint --continue -- --cache --cache-location node_modules/.cache/.eslintcache",
     "lint:fix": "turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
     "lint:ws": "pnpm dlx sherif@latest",
+    "release": "pnpm -F semver release",
+    "release:beta": "pnpm -F semver release:beta",
     "package:new": "turbo gen init",
     "test": "cross-env NODE_ENV=development vitest run --exclude e2e --coverage.enabled ",
     "test:e2e": "cross-env NODE_ENV=development vitest e2e",
