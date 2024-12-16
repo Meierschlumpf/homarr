@@ -69,6 +69,7 @@ jobs:
       - name: Echo next semver version
         run: |
           echo ${{ needs.release.outputs.next }}
+          echo "Hello"
       #- name: Discord notification
       #  if: ${{ github.events.inputs.send-notifications != false }}
       #  env:
