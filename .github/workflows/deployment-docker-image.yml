@@ -101,7 +101,7 @@ jobs:
         with:
           images: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
           tags: |
-            ${{ env.DEPLOY_LATEST && 'type=raw,value=latest' || null }}
+            ${{ env.DEPLOY_LATEST == true && 'type=raw,value=latest' || null }}
             type=raw,value=${{ env.NEXT_VERSION }}
       #- name: Build and push
       #  id: buildPushAction
