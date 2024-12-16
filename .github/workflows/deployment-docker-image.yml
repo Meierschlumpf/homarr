@@ -47,11 +47,11 @@ jobs:
           npm install -g pnpm
       - name: Install dependencies
         run: |
-          cd tooling/semver && pnpm install
+          pnpm install
       - name: Run Semantic Release
         id: semver
         run: |
-          cd tooling/semver && pnpm run release
+          pnpm run release
       - name: Read semver output
         run: |
           echo "Next version: ${{ steps.semver.outputs.NEXT_RELEASE_VERSION }}"
