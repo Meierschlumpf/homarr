@@ -31,19 +31,19 @@ env:
 
 concurrency: production
 
-# TODO: Install node 22
 jobs:
-  deploy:
-    name: Deploy docker image
+  release:
     runs-on: ubuntu-latest
+    outputs:
+      next: ${{ steps.read-semver.outputs.next }}
     steps:
-      #- name: Discord notification
-      #  if: ${{ github.events.inputs.send-notifications != false }}
-      #  env:
-      #    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-      #  uses: Ilshidur/action-discord@master
-      #  with:
-      #    args: "Deployment of an image has been triggered: [run ${{ github.run_number }}](<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>)"
+      - name: Discord notification
+        if: ${{ github.events.inputs.send-notifications != false }}
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "Deployment of an image has been triggered: [run ${{ github.run_number }}](<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>)"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -58,9 +58,17 @@ jobs:
         run: |
           pnpm run release
       - name: Read semver output
+        id: read-semver
         run: |
-          next=$(git describe --tags --abbrev=0)
-          echo next=$next
+          echo "next=\"$(git describe --tags --abbrev=0)\"" >> "$GITHUB_OUTPUT"
+  deploy:
+    name: Deploy docker image
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo next semver version
+        run: |
+          echo ${{ needs.release.outputs.next }}
       #- name: Discord notification
       #  if: ${{ github.events.inputs.send-notifications != false }}
       #  env:
