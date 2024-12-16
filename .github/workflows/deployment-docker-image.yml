@@ -33,17 +33,12 @@ concurrency: production
 
 jobs:
   release:
+    name: Create tag and release
     runs-on: ubuntu-latest
     outputs:
-      next: ${{ steps.read-semver.outputs.next }}
+      next: ${{ steps.read-semver.outputs.next || '' }}
+    if: ${{ github.event_name != 'workflow_dispatch' }}
     steps:
-      - name: Discord notification
-        if: ${{ github.events.inputs.send-notifications != false }}
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: "Deployment of an image has been triggered: [run ${{ github.run_number }}](<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>)"
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
@@ -66,6 +61,14 @@ jobs:
     needs: release
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - name: Discord notification
+        if: ${{ github.events.inputs.send-notifications != false }}
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: "Deployment of an image has been triggered: [run ${{ github.run_number }}](<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}>)"
       - name: Echo next semver version
         run: |
           echo ${{ needs.release.outputs.next }}
