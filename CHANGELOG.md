@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/Meierschlumpf/homarr/compare/v1.0.0...v1.0.1) (2024-12-16)
+
+### Bug Fixes
+
+* remove unnecessary id ([0a07010](https://github.com/Meierschlumpf/homarr/commit/0a07010f212c0bc7353709388375d20d83bfb318))
+
 ## 1.0.0 (2024-12-16)
 
 ### ⚠ BREAKING CHANGES
