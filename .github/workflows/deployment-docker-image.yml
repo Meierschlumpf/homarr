@@ -79,6 +79,7 @@ jobs:
       DEPLOY_LATEST: ${{ !needs.release.outputs.skipped }}
       PUSH_IMAGE: ${{ github.event_name != 'workflow_dispatch' || github.events.inputs.push-image == 'true' }}
     steps:
+      - uses: actions/checkout@v4
       - name: Discord notification
         if: ${{ github.events.inputs.send-notifications != false }}
         env:
