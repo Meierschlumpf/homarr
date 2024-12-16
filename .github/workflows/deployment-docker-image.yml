@@ -41,34 +41,33 @@ jobs:
       SKIP_RELEASE: ${{ github.event_name == 'workflow_dispatch' || github.ref_name == 'dev' }}
     outputs:
       version: ${{ steps.read-semver.outputs.version || steps.version-fallback.outputs.version }}
-      skipped: ${{ env.SKIP_RELEASE }}
 
     steps:
       - run: echo "Skipping release for workflow_dispatch event"
-        if: env.SKIP_RELEASE
+        if: env.SKIP_RELEASE == 'true'
       - run: echo "version="$(echo ${{github.ref_name}} | sed 's/[^a-zA-Z0-9\-]/-/g') >> "$GITHUB_OUTPUT"
         id: version-fallback
-        if: env.SKIP_RELEASE
+        if: env.SKIP_RELEASE == 'true'
       - uses: actions/checkout@v4
-        if: env.SKIP_RELEASE == false
+        if: env.SKIP_RELEASE == 'false'
       - uses: actions/setup-node@v4
-        if: env.SKIP_RELEASE == false
+        if: env.SKIP_RELEASE == 'false'
         with:
           node-version: 22
       - run: npm i -g pnpm
-        if: env.SKIP_RELEASE == false
+        if: env.SKIP_RELEASE == 'false'
       - name: Install dependencies
-        if: env.SKIP_RELEASE == false
+        if: env.SKIP_RELEASE == 'false'
         run: |
           pnpm install
       - name: Run Semantic Release
-        if: env.SKIP_RELEASE == false
+        if: env.SKIP_RELEASE == 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pnpm release
       - name: Read semver output
-        if: env.SKIP_RELEASE == false
+        if: env.SKIP_RELEASE == 'false'
         id: read-semver
         run: |
           echo "version=\"$(git describe --tags --abbrev=0)\"" >> "$GITHUB_OUTPUT"
