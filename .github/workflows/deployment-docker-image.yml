@@ -38,11 +38,14 @@ jobs:
     env:
       SKIP_RELEASE: ${{ github.event_name == 'workflow_dispatch' }}
     outputs:
-      next: ${{ steps.read-semver.outputs.next || github.ref_name }}
+      next: ${{ steps.read-semver.outputs.next || steps.next-fallback.outputs.next }}
       skipped: ${{ env.SKIP_RELEASE }}
 
     steps:
       - run: echo "Skipping release for workflow_dispatch event"
+        if: env.SKIP_RELEASE
+      - run: echo "next="$(echo ${{github.ref_name}} | sed 's/[^a-zA-Z0-9\-]/-/g') >> "$GITHUB_OUTPUT"
+        id: next-fallback
         if: env.SKIP_RELEASE
       - uses: actions/checkout@v4
         if: env.SKIP_RELEASE == false
