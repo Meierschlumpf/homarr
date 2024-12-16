@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/Meierschlumpf/homarr/compare/v1.0.0...v1.0.1) (2024-12-16)
+
+### Bug Fixes
+
+* add missing github token for github release ([1c3c54d](https://github.com/Meierschlumpf/homarr/commit/1c3c54dee123be31252dfb37da2112fbb8f99e15))
+* add permissions for pull-requests and issues write to send message that issue has been resolved in specified release ([65f0ebd](https://github.com/Meierschlumpf/homarr/commit/65f0ebdb4b69695781097cd485bb0a54da671322))
+* change version of package in mororepo root ([bb3b2d9](https://github.com/Meierschlumpf/homarr/commit/bb3b2d93abef7b4bd807e0abe4e92e5017128202))
+
 ## 1.0.0 (2024-12-16)
 
 ### ⚠ BREAKING CHANGES
