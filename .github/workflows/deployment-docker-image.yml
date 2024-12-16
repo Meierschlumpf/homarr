@@ -52,6 +52,8 @@ jobs:
           pnpm install
       - name: Run Semantic Release
         id: semver
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pnpm run release
       - name: Read semver output
