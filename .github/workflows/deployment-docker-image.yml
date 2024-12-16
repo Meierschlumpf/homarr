@@ -60,7 +60,7 @@ jobs:
           pnpm run release
       - name: Read semver output
         run: |
-          echo "Next version: ${{ steps.semver.outputs.NEXT_RELEASE_VERSION }}"
+          echo "Next version: ${{ env.NEXT_RELEASE_VERSION }}"
       #- name: Discord notification
       #  if: ${{ github.events.inputs.send-notifications != false }}
       #  env:

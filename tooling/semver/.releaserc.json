@@ -16,7 +16,7 @@
     [
       "@semantic-release/exec",
       {
-        "verifiyReleaseCmd": "echo \"NEXT_RELEASE_VERSION=${nextRelease.version}\" >> $GITHUB_OUTPUT"
+        "verifiyReleaseCmd": "echo \"NEXT_RELEASE_VERSION=${nextRelease.version}\" >> $GITHUB_ENV"
       }
     ],
     [
