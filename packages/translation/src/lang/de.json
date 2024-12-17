@@ -1,131 +1,26 @@
 {
-  "init": {
-    "step": {
-      "start": {
-        "title": "",
-        "subtitle": "",
-        "description": "",
-        "action": {
-          "scratch": "",
-          "importOldmarr": ""
-        }
-      },
-      "import": {
-        "title": "",
-        "subtitle": "",
-        "dropzone": {
-          "title": "",
-          "description": ""
-        },
-        "fileInfo": {
-          "action": {
-            "change": ""
-          }
-        },
-        "importSettings": {
-          "title": "",
-          "description": ""
-        },
-        "boardSelection": {
-          "title": "",
-          "description": "",
-          "action": {
-            "selectAll": "",
-            "unselectAll": ""
-          }
-        },
-        "summary": {
-          "title": "",
-          "description": "",
-          "action": {
-            "import": ""
-          },
-          "entities": {
-            "apps": "",
-            "boards": "",
-            "integrations": "",
-            "credentialUsers": ""
-          }
-        },
-        "tokenModal": {
-          "title": "",
-          "field": {
-            "token": {
-              "label": "",
-              "description": ""
-            }
-          },
-          "notification": {
-            "error": {
-              "title": "",
-              "message": ""
-            }
-          }
-        }
-      },
-      "user": {
-        "title": "",
-        "subtitle": "",
-        "notification": {
-          "success": {
-            "title": "",
-            "message": ""
-          },
-          "error": {
-            "title": ""
-          }
-        }
-      },
-      "group": {
-        "title": "",
-        "subtitle": "",
-        "form": {
-          "name": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "settings": {
-        "title": "",
-        "subtitle": ""
-      },
-      "finish": {
-        "title": "",
-        "subtitle": "",
-        "description": "",
-        "action": {
-          "goToBoard": "",
-          "createBoard": "",
-          "inviteUser": "",
-          "docs": ""
-        }
-      }
-    },
-    "backToStart": ""
-  },
   "user": {
     "title": "Benutzer",
     "name": "Benutzer",
     "page": {
       "login": {
-        "title": "Melde dich bei deinem Konto an",
-        "subtitle": "Willkommen zurück! Bitte gib deine Zugangsdaten ein"
+        "title": "",
+        "subtitle": ""
       },
       "invite": {
-        "title": "Trete Homarr bei",
-        "subtitle": "Willkommen bei Homarr! Bitte erstelle dein Konto",
-        "description": "Du wurdest von {username} eingeladen"
+        "title": "Homarr beitreten",
+        "subtitle": "",
+        "description": ""
       },
       "init": {
-        "title": "Neue Homarr Installation",
-        "subtitle": "Bitte erstelle den initialen Administrator"
+        "title": "",
+        "subtitle": ""
       }
     },
     "field": {
       "email": {
         "label": "",
-        "verified": "Verifiziert"
+        "verified": ""
       },
       "username": {
         "label": "Benutzername"
@@ -133,18 +28,18 @@
       "password": {
         "label": "Passwort",
         "requirement": {
-          "length": "Enthält mindestens 8 Zeichen",
+          "length": "",
           "lowercase": "Enthält Kleinbuchstaben",
           "uppercase": "Enthält Großbuchstaben",
           "number": "Enthält Ziffern",
-          "special": "Enthält Sonderzeichen"
+          "special": ""
         }
       },
       "passwordConfirm": {
         "label": "Passwort bestätigen"
       },
       "previousPassword": {
-        "label": "Vorheriges Passwort"
+        "label": ""
       },
       "homeBoard": {
         "label": ""
@@ -154,25 +49,25 @@
       }
     },
     "error": {
-      "usernameTaken": "Benutzername schon vergeben"
+      "usernameTaken": ""
     },
     "action": {
       "login": {
         "label": "Anmelden",
-        "labelWith": "Mit {provider} anmelden",
+        "labelWith": "",
         "notification": {
           "success": {
-            "title": "Anmeldung erfolgreich",
-            "message": "Du bist jetzt angemeldet"
+            "title": "",
+            "message": ""
           },
           "error": {
-            "title": "Anmeldung fehlgeschlagen",
-            "message": "Deine Anmeldung ist fehlgeschlagen"
+            "title": "",
+            "message": ""
           }
         },
         "forgotPassword": {
-          "label": "Hast du dein Passwort vergessen?",
-          "description": "Ein Administrator kann den folgenden Befehl verwenden, um dein Passwort zurückzusetzen:"
+          "label": "",
+          "description": ""
         }
       },
       "register": {
@@ -180,20 +75,20 @@
         "notification": {
           "success": {
             "title": "Account erstellt",
-            "message": "Bitte melde dich an um fortzufahren"
+            "message": ""
           },
           "error": {
-            "title": "Kontoerstellung fehlgeschlagen",
-            "message": "Dein Benutzerkonto konnte nicht erstellt werden"
+            "title": "",
+            "message": ""
           }
         }
       },
       "create": "Benutzer erstellen",
       "changePassword": {
-        "label": "Passwort ändern",
+        "label": "",
         "notification": {
           "success": {
-            "message": "Passwort erfolgreich geändert"
+            "message": ""
           },
           "error": {
             "message": ""
@@ -275,7 +170,7 @@
         "confirm": ""
       },
       "select": {
-        "label": "Benutzer auswählen",
+        "label": "",
         "notFound": ""
       },
       "transfer": {
@@ -296,27 +191,6 @@
         "title": "",
         "item": {
           "admin": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "app": {
-        "title": "",
-        "item": {
-          "create": {
-            "label": "",
-            "description": ""
-          },
-          "use-all": {
-            "label": "",
-            "description": ""
-          },
-          "modify-all": {
-            "label": "",
-            "description": ""
-          },
-          "full-all": {
             "label": "",
             "description": ""
           }
@@ -355,49 +229,6 @@
             "description": ""
           },
           "interact-all": {
-            "label": "",
-            "description": ""
-          },
-          "full-all": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "media": {
-        "title": "",
-        "item": {
-          "upload": {
-            "label": "",
-            "description": ""
-          },
-          "view-all": {
-            "label": "",
-            "description": ""
-          },
-          "full-all": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "other": {
-        "title": "",
-        "item": {
-          "view-logs": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "search-engine": {
-        "title": "",
-        "item": {
-          "create": {
-            "label": "",
-            "description": ""
-          },
-          "modify-all": {
             "label": "",
             "description": ""
           },
@@ -548,12 +379,6 @@
       "url": {
         "label": ""
       }
-    },
-    "action": {
-      "select": {
-        "label": "",
-        "notFound": ""
-      }
     }
   },
   "integration": {
@@ -561,9 +386,7 @@
       "list": {
         "title": "",
         "search": "",
-        "noResults": {
-          "title": ""
-        }
+        "empty": ""
       },
       "create": {
         "title": "",
@@ -693,10 +516,6 @@
     "secrets": {
       "title": "",
       "lastUpdated": "",
-      "notSet": {
-        "label": "",
-        "tooltip": ""
-      },
       "secureNotice": "",
       "reset": {
         "title": "",
@@ -787,7 +606,6 @@
       "previous": "Zurück",
       "next": "Weiter",
       "checkoutDocs": "",
-      "checkLogs": "",
       "tryAgain": "Erneut versuchen",
       "loading": ""
     },
@@ -795,12 +613,6 @@
     "iconPicker": {
       "label": "",
       "header": ""
-    },
-    "colorScheme": {
-      "options": {
-        "light": "",
-        "dark": ""
-      }
     },
     "information": {
       "min": "",
@@ -849,8 +661,7 @@
         "logout": "",
         "login": "Anmelden",
         "homeBoard": "",
-        "loggedOut": "",
-        "updateAvailable": ""
+        "loggedOut": ""
       }
     },
     "dangerZone": "Gefahrenzone",
@@ -883,8 +694,7 @@
           "boardAlreadyExists": "",
           "invalidFileType": "",
           "fileTooLarge": "",
-          "invalidConfiguration": "",
-          "groupNameTaken": ""
+          "invalidConfiguration": ""
         }
       }
     }
@@ -1015,33 +825,6 @@
         "notFound": {
           "label": "",
           "tooltip": ""
-        }
-      }
-    },
-    "bookmarks": {
-      "name": "",
-      "description": "",
-      "option": {
-        "title": {
-          "label": ""
-        },
-        "layout": {
-          "label": "",
-          "option": {
-            "row": {
-              "label": ""
-            },
-            "column": {
-              "label": ""
-            },
-            "grid": {
-              "label": ""
-            }
-          }
-        },
-        "items": {
-          "label": "",
-          "add": ""
         }
       }
     },
@@ -1277,9 +1060,6 @@
         "automationId": {
           "label": "Automatisierungs-ID"
         }
-      },
-      "spotlightAction": {
-        "run": ""
       }
     },
     "calendar": {
@@ -1319,10 +1099,6 @@
           "label": ""
         },
         "forecastDayCount": {
-          "label": "",
-          "description": ""
-        },
-        "dateFormat": {
           "label": "",
           "description": ""
         }
@@ -1426,6 +1202,9 @@
         "description": ""
       },
       "error": {
+        "action": {
+          "logs": ""
+        },
         "noIntegration": "",
         "noData": ""
       },
@@ -1643,65 +1422,6 @@
         }
       }
     },
-    "mediaTranscoding": {
-      "name": "",
-      "description": "",
-      "option": {
-        "defaultView": {
-          "label": ""
-        },
-        "queuePageSize": {
-          "label": ""
-        }
-      },
-      "tab": {
-        "workers": "",
-        "queue": "",
-        "statistics": ""
-      },
-      "currentIndex": "",
-      "healthCheck": {
-        "title": "",
-        "queued": "",
-        "status": {
-          "healthy": "",
-          "unhealthy": ""
-        }
-      },
-      "panel": {
-        "statistics": {
-          "empty": "",
-          "transcodes": "",
-          "transcodesCount": "",
-          "healthChecksCount": "",
-          "filesCount": "",
-          "savedSpace": "",
-          "healthChecks": "",
-          "videoCodecs": "",
-          "videoContainers": "",
-          "videoResolutions": ""
-        },
-        "workers": {
-          "empty": "",
-          "table": {
-            "file": "",
-            "eta": "",
-            "progress": "",
-            "transcode": "",
-            "healthCheck": ""
-          }
-        },
-        "queue": {
-          "empty": "",
-          "table": {
-            "file": "",
-            "size": "",
-            "transcode": "",
-            "healthCheck": ""
-          }
-        }
-      }
-    },
     "rssFeed": {
       "name": "",
       "description": "",
@@ -1742,10 +1462,6 @@
             "title": "",
             "message": ""
           }
-        },
-        "confirmLeave": {
-          "title": "",
-          "message": ""
         }
       },
       "oldImport": {
@@ -1781,7 +1497,6 @@
           },
           "screenSize": {
             "label": "",
-            "description": "",
             "option": {
               "sm": "Klein",
               "md": "Mittel",
@@ -2127,9 +1842,8 @@
             "security": {
               "label": "Sicherheit"
             },
-            "groups": {
+            "permissions": {
               "label": "",
-              "title": "",
               "description": ""
             },
             "review": {
@@ -2185,10 +1899,7 @@
         "back": "",
         "setting": {
           "general": {
-            "title": "Allgemein",
-            "owner": "",
-            "ownerOfGroup": "",
-            "ownerOfGroupDeleted": ""
+            "title": "Allgemein"
           },
           "members": {
             "title": "",
@@ -2205,14 +1916,6 @@
       },
       "settings": {
         "title": "Einstellungen",
-        "notification": {
-          "success": {
-            "message": ""
-          },
-          "error": {
-            "message": ""
-          }
-        },
         "section": {
           "analytics": {
             "title": "",
@@ -2252,29 +1955,6 @@
               "title": "",
               "text": ""
             }
-          },
-          "board": {
-            "title": "",
-            "homeBoard": {
-              "label": "",
-              "description": ""
-            }
-          },
-          "appearance": {
-            "title": "",
-            "defaultColorScheme": {
-              "label": "",
-              "options": {
-                "light": "",
-                "dark": ""
-              }
-            }
-          },
-          "culture": {
-            "title": "",
-            "defaultLocale": {
-              "label": ""
-            }
           }
         }
       },
@@ -2308,11 +1988,8 @@
             "downloads": {
               "label": ""
             },
-            "mediaRequestStats": {
-              "label": ""
-            },
-            "mediaRequestList": {
-              "label": ""
+            "mediaRequests": {
+              "label": "Medienanfragen"
             },
             "rssFeeds": {
               "label": ""
@@ -2324,15 +2001,6 @@
               "label": ""
             },
             "dnsHole": {
-              "label": ""
-            },
-            "sessionCleanup": {
-              "label": ""
-            },
-            "updateChecker": {
-              "label": ""
-            },
-            "mediaTranscoding": {
               "label": ""
             }
           }
@@ -2482,9 +2150,6 @@
           }
         }
       }
-    },
-    "error": {
-      "internalServerError": ""
     }
   },
   "permission": {
@@ -2637,9 +2302,6 @@
       "command": {
         "help": "",
         "group": {
-          "localCommand": {
-            "title": ""
-          },
           "globalCommand": {
             "title": "",
             "option": {
@@ -2698,9 +2360,6 @@
               },
               "detail": {
                 "title": ""
-              },
-              "searchResults": {
-                "title": ""
               }
             },
             "option": {
@@ -2746,13 +2405,6 @@
                 "label": ""
               }
             }
-          }
-        }
-      },
-      "home": {
-        "group": {
-          "local": {
-            "title": ""
           }
         }
       },
@@ -2877,8 +2529,7 @@
           "noResults": {
             "title": "",
             "action": ""
-          },
-          "interactive": ""
+          }
         },
         "create": {
           "title": "",
@@ -2904,11 +2555,6 @@
               "title": "",
               "message": ""
             }
-          },
-          "configControl": "",
-          "searchEngineType": {
-            "generic": "",
-            "fromIntegration": ""
           }
         },
         "delete": {

@@ -1,109 +1,4 @@
 {
-  "init": {
-    "step": {
-      "start": {
-        "title": "",
-        "subtitle": "",
-        "description": "",
-        "action": {
-          "scratch": "",
-          "importOldmarr": ""
-        }
-      },
-      "import": {
-        "title": "",
-        "subtitle": "",
-        "dropzone": {
-          "title": "",
-          "description": ""
-        },
-        "fileInfo": {
-          "action": {
-            "change": ""
-          }
-        },
-        "importSettings": {
-          "title": "",
-          "description": ""
-        },
-        "boardSelection": {
-          "title": "",
-          "description": "",
-          "action": {
-            "selectAll": "",
-            "unselectAll": ""
-          }
-        },
-        "summary": {
-          "title": "",
-          "description": "",
-          "action": {
-            "import": ""
-          },
-          "entities": {
-            "apps": "",
-            "boards": "",
-            "integrations": "",
-            "credentialUsers": ""
-          }
-        },
-        "tokenModal": {
-          "title": "",
-          "field": {
-            "token": {
-              "label": "",
-              "description": ""
-            }
-          },
-          "notification": {
-            "error": {
-              "title": "",
-              "message": ""
-            }
-          }
-        }
-      },
-      "user": {
-        "title": "",
-        "subtitle": "",
-        "notification": {
-          "success": {
-            "title": "",
-            "message": ""
-          },
-          "error": {
-            "title": ""
-          }
-        }
-      },
-      "group": {
-        "title": "",
-        "subtitle": "",
-        "form": {
-          "name": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "settings": {
-        "title": "",
-        "subtitle": ""
-      },
-      "finish": {
-        "title": "",
-        "subtitle": "",
-        "description": "",
-        "action": {
-          "goToBoard": "",
-          "createBoard": "",
-          "inviteUser": "",
-          "docs": ""
-        }
-      }
-    },
-    "backToStart": ""
-  },
   "user": {
     "title": "Utilisateurs",
     "name": "Utilisateur",
@@ -285,7 +180,7 @@
   },
   "group": {
     "title": "",
-    "name": "",
+    "name": "Groupe",
     "search": "",
     "field": {
       "name": "Nom",
@@ -296,27 +191,6 @@
         "title": "",
         "item": {
           "admin": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "app": {
-        "title": "",
-        "item": {
-          "create": {
-            "label": "",
-            "description": ""
-          },
-          "use-all": {
-            "label": "",
-            "description": ""
-          },
-          "modify-all": {
-            "label": "",
-            "description": ""
-          },
-          "full-all": {
             "label": "",
             "description": ""
           }
@@ -355,49 +229,6 @@
             "description": ""
           },
           "interact-all": {
-            "label": "",
-            "description": ""
-          },
-          "full-all": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "media": {
-        "title": "",
-        "item": {
-          "upload": {
-            "label": "",
-            "description": ""
-          },
-          "view-all": {
-            "label": "",
-            "description": ""
-          },
-          "full-all": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "other": {
-        "title": "",
-        "item": {
-          "view-logs": {
-            "label": "",
-            "description": ""
-          }
-        }
-      },
-      "search-engine": {
-        "title": "",
-        "item": {
-          "create": {
-            "label": "",
-            "description": ""
-          },
-          "modify-all": {
             "label": "",
             "description": ""
           },
@@ -548,12 +379,6 @@
       "url": {
         "label": ""
       }
-    },
-    "action": {
-      "select": {
-        "label": "",
-        "notFound": ""
-      }
     }
   },
   "integration": {
@@ -561,9 +386,7 @@
       "list": {
         "title": "",
         "search": "",
-        "noResults": {
-          "title": ""
-        }
+        "empty": ""
       },
       "create": {
         "title": "",
@@ -693,10 +516,6 @@
     "secrets": {
       "title": "",
       "lastUpdated": "",
-      "notSet": {
-        "label": "",
-        "tooltip": ""
-      },
       "secureNotice": "",
       "reset": {
         "title": "",
@@ -787,7 +606,6 @@
       "previous": "Précédent",
       "next": "Suivant",
       "checkoutDocs": "",
-      "checkLogs": "",
       "tryAgain": "Réessayer",
       "loading": ""
     },
@@ -795,12 +613,6 @@
     "iconPicker": {
       "label": "",
       "header": ""
-    },
-    "colorScheme": {
-      "options": {
-        "light": "",
-        "dark": ""
-      }
     },
     "information": {
       "min": "",
@@ -849,8 +661,7 @@
         "logout": "",
         "login": "Connexion",
         "homeBoard": "",
-        "loggedOut": "",
-        "updateAvailable": ""
+        "loggedOut": ""
       }
     },
     "dangerZone": "Zone de danger",
@@ -883,8 +694,7 @@
           "boardAlreadyExists": "",
           "invalidFileType": "",
           "fileTooLarge": "",
-          "invalidConfiguration": "",
-          "groupNameTaken": ""
+          "invalidConfiguration": ""
         }
       }
     }
@@ -1015,33 +825,6 @@
         "notFound": {
           "label": "",
           "tooltip": ""
-        }
-      }
-    },
-    "bookmarks": {
-      "name": "",
-      "description": "",
-      "option": {
-        "title": {
-          "label": ""
-        },
-        "layout": {
-          "label": "",
-          "option": {
-            "row": {
-              "label": ""
-            },
-            "column": {
-              "label": ""
-            },
-            "grid": {
-              "label": ""
-            }
-          }
-        },
-        "items": {
-          "label": "",
-          "add": ""
         }
       }
     },
@@ -1277,9 +1060,6 @@
         "automationId": {
           "label": "ID de l'automatisation"
         }
-      },
-      "spotlightAction": {
-        "run": ""
       }
     },
     "calendar": {
@@ -1319,10 +1099,6 @@
           "label": ""
         },
         "forecastDayCount": {
-          "label": "",
-          "description": ""
-        },
-        "dateFormat": {
           "label": "",
           "description": ""
         }
@@ -1426,6 +1202,9 @@
         "description": ""
       },
       "error": {
+        "action": {
+          "logs": ""
+        },
         "noIntegration": "",
         "noData": ""
       },
@@ -1643,65 +1422,6 @@
         }
       }
     },
-    "mediaTranscoding": {
-      "name": "",
-      "description": "",
-      "option": {
-        "defaultView": {
-          "label": ""
-        },
-        "queuePageSize": {
-          "label": ""
-        }
-      },
-      "tab": {
-        "workers": "",
-        "queue": "",
-        "statistics": ""
-      },
-      "currentIndex": "",
-      "healthCheck": {
-        "title": "",
-        "queued": "",
-        "status": {
-          "healthy": "",
-          "unhealthy": ""
-        }
-      },
-      "panel": {
-        "statistics": {
-          "empty": "",
-          "transcodes": "",
-          "transcodesCount": "",
-          "healthChecksCount": "",
-          "filesCount": "",
-          "savedSpace": "",
-          "healthChecks": "",
-          "videoCodecs": "",
-          "videoContainers": "",
-          "videoResolutions": ""
-        },
-        "workers": {
-          "empty": "",
-          "table": {
-            "file": "",
-            "eta": "",
-            "progress": "",
-            "transcode": "",
-            "healthCheck": ""
-          }
-        },
-        "queue": {
-          "empty": "",
-          "table": {
-            "file": "",
-            "size": "",
-            "transcode": "",
-            "healthCheck": ""
-          }
-        }
-      }
-    },
     "rssFeed": {
       "name": "",
       "description": "",
@@ -1742,10 +1462,6 @@
             "title": "",
             "message": ""
           }
-        },
-        "confirmLeave": {
-          "title": "",
-          "message": ""
         }
       },
       "oldImport": {
@@ -1781,7 +1497,6 @@
           },
           "screenSize": {
             "label": "",
-            "description": "",
             "option": {
               "sm": "Petite",
               "md": "Moyenne",
@@ -2127,9 +1842,8 @@
             "security": {
               "label": "Sécurité"
             },
-            "groups": {
+            "permissions": {
               "label": "",
-              "title": "",
               "description": ""
             },
             "review": {
@@ -2185,10 +1899,7 @@
         "back": "",
         "setting": {
           "general": {
-            "title": "Général",
-            "owner": "",
-            "ownerOfGroup": "",
-            "ownerOfGroupDeleted": ""
+            "title": "Général"
           },
           "members": {
             "title": "",
@@ -2205,14 +1916,6 @@
       },
       "settings": {
         "title": "Paramètres",
-        "notification": {
-          "success": {
-            "message": ""
-          },
-          "error": {
-            "message": ""
-          }
-        },
         "section": {
           "analytics": {
             "title": "",
@@ -2252,29 +1955,6 @@
               "title": "",
               "text": ""
             }
-          },
-          "board": {
-            "title": "",
-            "homeBoard": {
-              "label": "",
-              "description": ""
-            }
-          },
-          "appearance": {
-            "title": "",
-            "defaultColorScheme": {
-              "label": "",
-              "options": {
-                "light": "",
-                "dark": ""
-              }
-            }
-          },
-          "culture": {
-            "title": "",
-            "defaultLocale": {
-              "label": ""
-            }
           }
         }
       },
@@ -2308,11 +1988,8 @@
             "downloads": {
               "label": ""
             },
-            "mediaRequestStats": {
-              "label": ""
-            },
-            "mediaRequestList": {
-              "label": ""
+            "mediaRequests": {
+              "label": "Demandes de média"
             },
             "rssFeeds": {
               "label": ""
@@ -2324,15 +2001,6 @@
               "label": ""
             },
             "dnsHole": {
-              "label": ""
-            },
-            "sessionCleanup": {
-              "label": ""
-            },
-            "updateChecker": {
-              "label": ""
-            },
-            "mediaTranscoding": {
               "label": ""
             }
           }
@@ -2482,9 +2150,6 @@
           }
         }
       }
-    },
-    "error": {
-      "internalServerError": ""
     }
   },
   "permission": {
@@ -2637,9 +2302,6 @@
       "command": {
         "help": "",
         "group": {
-          "localCommand": {
-            "title": ""
-          },
           "globalCommand": {
             "title": "",
             "option": {
@@ -2698,9 +2360,6 @@
               },
               "detail": {
                 "title": ""
-              },
-              "searchResults": {
-                "title": ""
               }
             },
             "option": {
@@ -2746,13 +2405,6 @@
                 "label": "Communauté Discord"
               }
             }
-          }
-        }
-      },
-      "home": {
-        "group": {
-          "local": {
-            "title": ""
           }
         }
       },
@@ -2877,8 +2529,7 @@
           "noResults": {
             "title": "",
             "action": ""
-          },
-          "interactive": ""
+          }
         },
         "create": {
           "title": "",
@@ -2904,11 +2555,6 @@
               "title": "",
               "message": ""
             }
-          },
-          "configControl": "",
-          "searchEngineType": {
-            "generic": "",
-            "fromIntegration": ""
           }
         },
         "delete": {
