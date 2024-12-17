@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/Meierschlumpf/homarr/compare/v1.0.3...v1.0.4) (2024-12-17)
+
+### Bug Fixes
+
+* version tag should not have quotes ([d23d23a](https://github.com/Meierschlumpf/homarr/commit/d23d23ad5db631bb61ebd881ec245cab7be04817))
+
 ## [1.0.3](https://github.com/Meierschlumpf/homarr/compare/v1.0.2...v1.0.3) (2024-12-17)
 
 ### Bug Fixes
