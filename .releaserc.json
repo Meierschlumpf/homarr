@@ -49,7 +49,7 @@
       {
         "successComment": false,
         "failComment": false,
-        "releaseBodyTemplate": "The release notes were to long..."
+        "releaseBodyTemplate": "<%= _.truncate(nextverison.notes, { 'length': 124000, 'omission': '' }) %>"
       }
     ]
   ]
