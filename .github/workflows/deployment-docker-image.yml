@@ -22,8 +22,6 @@ on:
 permissions:
   contents: write
   packages: write
-  issues: write
-  pull-requests: write
 
 env:
   SKIP_ENV_VALIDATION: true
@@ -45,9 +43,17 @@ jobs:
     steps:
       - run: echo "Skipping release for workflow_dispatch event"
         if: env.SKIP_RELEASE == 'true'
+        # The below generated version fallback represents a normalized branch name, for example "feature/branch-name" -> "feature-branch-name"
       - run: echo "version="$(echo ${{github.ref_name}} | sed 's/[^a-zA-Z0-9\-]/-/g') >> "$GITHUB_OUTPUT"
         id: version-fallback
         if: env.SKIP_RELEASE == 'true'
+      #- name: Obtain token
+      #  if: env.SKIP_RELEASE == 'false'
+      #  id: obtainToken
+      #  uses: tibdex/github-app-token@v2
+      #  with:
+      #    private_key: ${{ secrets.RENOVATE_MERGE_PRIVATE_KEY }}
+      #    app_id: ${{ secrets.RENOVATE_MERGE_APP_ID }}
       - uses: actions/checkout@v4
         if: env.SKIP_RELEASE == 'false'
       - uses: actions/setup-node@v4
@@ -63,7 +69,9 @@ jobs:
       - name: Run Semantic Release
         if: env.SKIP_RELEASE == 'false'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #steps.obtainToken.outputs.token
+          GIT_COMMITTER_NAME: "Releases Homarr"
+          GIT_COMMITTER_EMAIL: "175486441+homarr-releases[bot]@users.noreply.github.com"
         run: |
           pnpm release
       - name: Read semver output
