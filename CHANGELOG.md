@@ -1,3 +1,20 @@
+## [1.0.3](https://github.com/Meierschlumpf/homarr/compare/v1.0.2...v1.0.3) (2024-12-17)
+
+### Bug Fixes
+
+* add docker meta with conditional latest ([c02143f](https://github.com/Meierschlumpf/homarr/commit/c02143f17d79f2c7bcf71d28cb1e5ba0d01b6020))
+* add git commiter ([ded925d](https://github.com/Meierschlumpf/homarr/commit/ded925db0611a57f33b77807e1fa36f0f0cea68e))
+* add if statement and fallback for output ([6cbd2d0](https://github.com/Meierschlumpf/homarr/commit/6cbd2d0ba6fd4252aba0a2fb1d67be5fdc44b1da))
+* add image build and push back ([0827365](https://github.com/Meierschlumpf/homarr/commit/08273651dd60e32455a8ac4f76f47cb23c5c7f08))
+* add missing checkout action ([2a9c933](https://github.com/Meierschlumpf/homarr/commit/2a9c933a918c229557579efaa102c7e9ce02ad5f))
+* add ref_name as fallback for next version ([77f93e4](https://github.com/Meierschlumpf/homarr/commit/77f93e41fc9a4196b228de73f68eccff9804e47e))
+* change skip release condition from exclamation mark to equals false ([e7de826](https://github.com/Meierschlumpf/homarr/commit/e7de826d03928547fa4d8371c3ac9be997864744))
+* sanitize fallback next version ([2388463](https://github.com/Meierschlumpf/homarr/commit/23884635337d2ca416d308c4d5e9ad860280fb54))
+* skip release env is a string ([8a4b209](https://github.com/Meierschlumpf/homarr/commit/8a4b2095897bd955aa03c83e564591d5330b01a8))
+* temporary enable dev release ([bb19e8d](https://github.com/Meierschlumpf/homarr/commit/bb19e8db9ce4e4d48eb2e65183b9dd209a6bc83d))
+* ternary operator not working ([2b1014d](https://github.com/Meierschlumpf/homarr/commit/2b1014d2febb734c96aa0ea9a80ee567eebfc3e2))
+* workflow is skipped ([3684a08](https://github.com/Meierschlumpf/homarr/commit/3684a08bf9f5e858ff640b97123f96ce872ff860))
+
 ## [1.0.3-beta.1](https://github.com/Meierschlumpf/homarr/compare/v1.0.2...v1.0.3-beta.1) (2024-12-16)
 
 ### Bug Fixes
