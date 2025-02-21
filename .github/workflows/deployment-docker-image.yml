@@ -14,9 +14,6 @@ on:
         default: true
         description: Send notifications
 
-permissions:
-  contents: write
-  packages: write
 
 env:
   SKIP_ENV_VALIDATION: true
