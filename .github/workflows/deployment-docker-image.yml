@@ -21,7 +21,7 @@ permissions:
 env:
   SKIP_ENV_VALIDATION: true
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: meierschlumpf/homarr
   TURBO_TELEMETRY_DISABLED: 1
 
 concurrency:
