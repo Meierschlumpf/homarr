@@ -31,5 +31,7 @@ runs:
       run: docker container remove --force --volumes homarr-extraction-${{ inputs.architecture }}
       shell: bash
     - name: Add archive to release
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: gh release upload ${{ inputs.release-tag }} ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar --clobber
       shell: bash
