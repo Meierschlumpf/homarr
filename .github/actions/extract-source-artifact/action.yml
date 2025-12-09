@@ -29,6 +29,6 @@ runs:
       if: always()
       run: docker container remove --force --volumes homarr-extraction-${{ inputs.architecture }}
       shell: bash
-- name: Add archive to release
+    - name: Add archive to release
       run: gh release upload ${{ inputs.release-tag }} ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar --clobber
       shell: bash
