@@ -9,19 +9,21 @@ inputs:
     required: true
   release-tag:
     description: Tag of the release to which the artifact will be attached
-    required: false
-    default: v1.0.0
+    required: true
   repository:
     description: Repository to which the release belongs, e.g. owner/repo
-    required: false
+    required: true
   token:
     description: GitHub token with permissions to upload release assets
-    required: false
+    required: true
 runs:
   using: "composite"
   steps:
     - name: Start docker container for ${{ inputs.architecture }}
-      run: "docker run --name homarr-extraction-${{ inputs.architecture }} -e \"SECRET_ENCRYPTION_KEY=0000000000000000000000000000000000000000000000000000000000000000\" --detach --rm ${{ inputs.digest }}"
+      run: |
+        docker run --name homarr-extraction-${{ inputs.architecture }} \
+          -e "SECRET_ENCRYPTION_KEY=0000000000000000000000000000000000000000000000000000000000000000" \
+          --detach --rm ${{ inputs.digest }}
       shell: bash
     - name: Extract source from ${{ inputs.architecture }} container
       run: |
