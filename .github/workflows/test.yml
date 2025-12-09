@@ -12,3 +12,4 @@ jobs:
           architecture: x64
           release-tag: v1.0.0
           token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}

@@ -11,6 +11,9 @@ inputs:
     description: Tag of the release to which the artifact will be attached
     required: false
     default: v1.0.0
+  repository:
+    description: Repository to which the release belongs, e.g. owner/repo
+    required: false
   token:
     description: GitHub token with permissions to upload release assets
     required: false
@@ -36,5 +39,5 @@ runs:
     - name: Add archive to release
       env:
         GH_TOKEN: ${{ inputs.token }}
-      run: gh release upload ${{ inputs.release-tag }} ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar --clobber
+      run: gh release upload --repo ${{ inputs.repository }} ${{ inputs.release-tag }} ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar --clobber
       shell: bash
