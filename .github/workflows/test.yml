@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Extract x64
-        uses: ./.github/actions/extract-source-artifact
+        uses: Meierschlumpf/homarr/.github/actions/extract-source-artifact@dev
         with:
           digest: ghcr.io/Meierschlumpf/homarr:dev
           architecture: x64
