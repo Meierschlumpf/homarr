@@ -8,6 +8,6 @@ jobs:
       - name: Extract x64
         uses: Meierschlumpf/homarr/.github/actions/extract-source-artifact@dev
         with:
-          digest: ghcr.io/meierschlumpf/homarr:dev
+          digest: ghcr.io/homarr-labs/homarr:dev
           architecture: x64
           release-tag: v1.0.0
