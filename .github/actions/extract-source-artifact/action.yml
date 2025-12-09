@@ -23,9 +23,9 @@ runs:
     - name: Start docker container for ${{ inputs.architecture }}
       run: "docker run --name homarr-extraction-${{ inputs.architecture }} --pull always -e \"SECRET_ENCRYPTION_KEY=0000000000000000000000000000000000000000000000000000000000000000\" --detach --rm ${{ inputs.digest }}"
       shell: bash
-    - name: Sleep
-      run: sleep 5s
-      shell: bash
+    #- name: Sleep
+    #  run: sleep 5s
+    #  shell: bash
     - name: Extract from ${{ inputs.architecture }} container
       run: |
         docker exec homarr-extraction-${{ inputs.architecture }} tar -cf extraction.tar /app && \
