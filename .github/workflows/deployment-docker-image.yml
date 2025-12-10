@@ -205,7 +205,7 @@ jobs:
   extract-asset-arm64:
     name: Extract arm64 asset from docker image
     needs: [release, build-arm64]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Extract arm64
         if: needs.release.outputs.skipped == 'false'
