@@ -1,3 +1,9 @@
+## [0.9.1](https://github.com/Meierschlumpf/homarr/compare/v0.9.0...v0.9.1) (2025-12-10)
+
+### Bug Fixes
+
+* please rerun ci like this ([63d8e1d](https://github.com/Meierschlumpf/homarr/commit/63d8e1dc2420c4133f4d9ab16b0bf0b928e56a2a))
+
 ## 1.0.0 (2025-12-10)
 
 ### ⚠ BREAKING CHANGES
