@@ -255,8 +255,10 @@ jobs:
 
       - name: Publish release
         if: needs.release.outputs.skipped == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release edit ${{ needs.release.outputs.version }} --draft=false
+          gh release edit --repo ${{ github.repository }} ${{ needs.release.outputs.version }} --draft=false
 
       - name: Discord notification
         env:
