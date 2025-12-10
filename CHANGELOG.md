@@ -1,3 +1,9 @@
+## [0.9.4](https://github.com/Meierschlumpf/homarr/compare/v0.9.3...v0.9.4) (2025-12-10)
+
+### Bug Fixes
+
+* using wrong runner for extraction ([864f1b0](https://github.com/Meierschlumpf/homarr/commit/864f1b05acd4bfcbc2a4651941a0a48b70a002d3))
+
 ## [0.9.3](https://github.com/Meierschlumpf/homarr/compare/v0.9.2...v0.9.3) (2025-12-10)
 
 ### Bug Fixes
