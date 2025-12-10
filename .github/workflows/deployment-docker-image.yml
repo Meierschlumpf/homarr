@@ -219,7 +219,7 @@ jobs:
 
   publish:
     name: Complete deployment and notify
-    needs: [release, build-amd64, build-arm64]
+    needs: [release, build-amd64, build-arm64, extract-asset-amd64, extract-asset-arm64]
     runs-on: ubuntu-latest
     env:
       NEXT_VERSION: ${{ needs.release.outputs.version }}
