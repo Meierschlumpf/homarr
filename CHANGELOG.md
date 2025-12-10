@@ -1,3 +1,9 @@
+## [0.9.3](https://github.com/Meierschlumpf/homarr/compare/v0.9.2...v0.9.3) (2025-12-10)
+
+### Bug Fixes
+
+* invalid reference for digests ([58a60bc](https://github.com/Meierschlumpf/homarr/commit/58a60bcfca441208c96bfd26a10e6f954b79b50c))
+
 ## [0.9.2](https://github.com/Meierschlumpf/homarr/compare/v0.9.1...v0.9.2) (2025-12-10)
 
 ### Bug Fixes
