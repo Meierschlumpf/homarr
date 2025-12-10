@@ -1,0 +1,15 @@
+on: 
+  workflow_dispatch:
+jobs:
+  extract-and-publish-static-artifacts:
+    name: Extract artifacts and publish to release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract x64
+        uses: Meierschlumpf/homarr/.github/actions/extract-source-artifact@dev
+        with:
+          digest: ghcr.io/homarr-labs/homarr:dev
+          architecture: x64
+          release-tag: v1.0.0
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
