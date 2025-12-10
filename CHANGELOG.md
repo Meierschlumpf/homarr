@@ -1,3 +1,9 @@
+## [0.9.2](https://github.com/Meierschlumpf/homarr/compare/v0.9.1...v0.9.2) (2025-12-10)
+
+### Bug Fixes
+
+* use ghcr repo image instead of local image that doesn't exist ([8ba9804](https://github.com/Meierschlumpf/homarr/commit/8ba9804f2f4b9417b20e22b48ea4681976ac2259))
+
 ## [0.9.1](https://github.com/Meierschlumpf/homarr/compare/v0.9.0...v0.9.1) (2025-12-10)
 
 ### Bug Fixes
