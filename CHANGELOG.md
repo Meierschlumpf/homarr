@@ -1,3 +1,9 @@
+## [0.9.5](https://github.com/Meierschlumpf/homarr/compare/v0.9.4...v0.9.5) (2025-12-10)
+
+### Bug Fixes
+
+* missing repo and token for publishing release ([d11c8f8](https://github.com/Meierschlumpf/homarr/commit/d11c8f8ea873ef2089ff571c0df937a4e8f4cd51))
+
 ## [0.9.4](https://github.com/Meierschlumpf/homarr/compare/v0.9.3...v0.9.4) (2025-12-10)
 
 ### Bug Fixes
