@@ -196,7 +196,7 @@ jobs:
         if: needs.release.outputs.skipped == 'false'
         uses: Meierschlumpf/homarr/.github/actions/extract-source-artifact@dev
         with:
-          digest: ${{ needs.build-amd64.outputs.digest }}
+          digest: "${{ env.GHCR_REPO }}:${{ needs.build-amd64.outputs.digest }}"
           architecture: amd64
           release-tag: ${{ needs.release.outputs.version }}
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -211,7 +211,7 @@ jobs:
         if: needs.release.outputs.skipped == 'false'
         uses: Meierschlumpf/homarr/.github/actions/extract-source-artifact@dev
         with:
-          digest: ${{ needs.build-arm64.outputs.digest }}
+          digest: "${{ env.GHCR_REPO }}:${{ needs.build-arm64.outputs.digest }}"
           architecture: arm64
           release-tag: ${{ needs.release.outputs.version }}
           token: ${{ secrets.GITHUB_TOKEN }}
