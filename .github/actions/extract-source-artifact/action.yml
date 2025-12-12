@@ -27,9 +27,9 @@ runs:
       shell: bash
     - name: Extract source from ${{ inputs.architecture }} container
       run: |
-        docker exec homarr-extraction-${{ inputs.architecture }} tar -cf extraction.tar /app && \
+        docker exec homarr-extraction-${{ inputs.architecture }} tar -czf extraction.tar.gz . /etc/nginx/templates/nginx.conf && \
         mkdir -p ${{ runner.temp }}/extraction/${{ inputs.architecture }} && \
-        docker cp homarr-extraction-${{ inputs.architecture }}:/app/extraction.tar ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar
+        docker cp homarr-extraction-${{ inputs.architecture }}:/app/extraction.tar.gz ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar.gz
       shell: bash
     - name: Stop ${{ inputs.architecture }} container
       if: always()
@@ -38,5 +38,5 @@ runs:
     - name: Add source archive to release
       env:
         GH_TOKEN: ${{ inputs.token }}
-      run: gh release upload --repo ${{ inputs.repository }} ${{ inputs.release-tag }} ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar --clobber
+      run: gh release upload --repo ${{ inputs.repository }} ${{ inputs.release-tag }} ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar.gz --clobber
       shell: bash
