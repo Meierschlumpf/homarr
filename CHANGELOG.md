@@ -1,3 +1,9 @@
+## [0.9.7](https://github.com/Meierschlumpf/homarr/compare/v0.9.6...v0.9.7) (2025-12-12)
+
+### Bug Fixes
+
+* nginx config is placed in etc directory ([041ce0d](https://github.com/Meierschlumpf/homarr/commit/041ce0d7c91e6620af7993434609b0bbf05d06c0))
+
 ## [0.9.6](https://github.com/Meierschlumpf/homarr/compare/v0.9.5...v0.9.6) (2025-12-12)
 
 ### Bug Fixes
