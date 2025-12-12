@@ -1,3 +1,9 @@
+## [0.9.12](https://github.com/Meierschlumpf/homarr/compare/v0.9.11...v0.9.12) (2025-12-12)
+
+### Bug Fixes
+
+* somehow cli command not working ([d245f12](https://github.com/Meierschlumpf/homarr/commit/d245f126097e5786ffaee533648da627e8a4d71b))
+
 ## [0.9.11](https://github.com/Meierschlumpf/homarr/compare/v0.9.10...v0.9.11) (2025-12-12)
 
 ### Bug Fixes
