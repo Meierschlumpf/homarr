@@ -1,3 +1,9 @@
+## [0.9.6](https://github.com/Meierschlumpf/homarr/compare/v0.9.5...v0.9.6) (2025-12-12)
+
+### Bug Fixes
+
+* adjust archive to be gziped, files in root and add missing nginx config ([3bb0159](https://github.com/Meierschlumpf/homarr/commit/3bb015947b3280e5c41b17337a562e375d390d5a))
+
 ## [0.9.5](https://github.com/Meierschlumpf/homarr/compare/v0.9.4...v0.9.5) (2025-12-10)
 
 ### Bug Fixes
