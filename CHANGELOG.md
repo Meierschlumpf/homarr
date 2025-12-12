@@ -1,3 +1,9 @@
+## [0.9.11](https://github.com/Meierschlumpf/homarr/compare/v0.9.10...v0.9.11) (2025-12-12)
+
+### Bug Fixes
+
+* file not found error ([9e47446](https://github.com/Meierschlumpf/homarr/commit/9e47446f32e78503166da4e85a565a4a0241406b))
+
 ## [0.9.10](https://github.com/Meierschlumpf/homarr/compare/v0.9.9...v0.9.10) (2025-12-12)
 
 ### Bug Fixes
