@@ -1,3 +1,9 @@
+## [0.9.8](https://github.com/Meierschlumpf/homarr/compare/v0.9.7...v0.9.8) (2025-12-12)
+
+### Bug Fixes
+
+* change directory is executed before putting current directory in tar ([8228964](https://github.com/Meierschlumpf/homarr/commit/8228964a62f4450ed7157f1f58dbc8cadfd2b488))
+
 ## [0.9.7](https://github.com/Meierschlumpf/homarr/compare/v0.9.6...v0.9.7) (2025-12-12)
 
 ### Bug Fixes
