@@ -27,7 +27,7 @@ runs:
       shell: bash
     - name: Extract source from ${{ inputs.architecture }} container
       run: |
-        docker exec homarr-extraction-${{ inputs.architecture }} tar -czf extraction.tar.gz -C /app . -C /etc/nginx/templates nginx.conf && \
+        docker exec homarr-extraction-${{ inputs.architecture }} "cp /etc/nginx/templates/nginx.conf /app/nginx.conf && tar -czf extraction.tar.gz -C /app . && \
         mkdir -p ${{ runner.temp }}/extraction/${{ inputs.architecture }} && \
         docker cp homarr-extraction-${{ inputs.architecture }}:/app/extraction.tar.gz ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-${{ inputs.architecture }}.tar.gz
       shell: bash
