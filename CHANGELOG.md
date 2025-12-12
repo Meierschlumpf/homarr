@@ -1,3 +1,9 @@
+## [0.9.10](https://github.com/Meierschlumpf/homarr/compare/v0.9.9...v0.9.10) (2025-12-12)
+
+### Bug Fixes
+
+* missing quote in cli command ([18d7268](https://github.com/Meierschlumpf/homarr/commit/18d7268924e007057bcc479dc7557b4fbec63382))
+
 ## [0.9.9](https://github.com/Meierschlumpf/homarr/compare/v0.9.8...v0.9.9) (2025-12-12)
 
 ### Bug Fixes
