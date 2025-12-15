@@ -1,3 +1,9 @@
+## [0.9.14](https://github.com/Meierschlumpf/homarr/compare/v0.9.13...v0.9.14) (2025-12-15)
+
+### Bug Fixes
+
+* publish two artifacts for each architecture ([f176216](https://github.com/Meierschlumpf/homarr/commit/f176216bcb7a2d7917fafc90aa9a421bda7fb09b))
+
 ## [0.9.13](https://github.com/Meierschlumpf/homarr/compare/v0.9.12...v0.9.13) (2025-12-15)
 
 ### Bug Fixes
