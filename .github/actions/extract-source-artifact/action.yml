@@ -19,6 +19,11 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Prebuilt debian dependencies
+      uses: Meierschlumpf/homarr/.github/actions/prebuilt-debian@dev
+      id: prebuilt-debian
+      with:
+        architecture: ${{ inputs.architecture }}
     - name: Start docker container for ${{ inputs.architecture }}
       run: |
         docker run --name homarr \
@@ -27,6 +32,7 @@ runs:
       shell: bash
     - name: Extract source from ${{ inputs.architecture }} container
       run: |
+        docker cp ${{ steps.prebuilt-debian.outputs.path }} homarr:/app/build/debian && \
         docker exec homarr cp /etc/nginx/templates/nginx.conf /app && \
         docker exec homarr tar -czf extraction.tar.gz -C /app . && \
         mkdir -p ${{ runner.temp }}/extraction/${{ inputs.architecture }} && \
