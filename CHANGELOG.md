@@ -1,3 +1,9 @@
+## [0.9.16](https://github.com/Meierschlumpf/homarr/compare/v0.9.15...v0.9.16) (2025-12-15)
+
+### Bug Fixes
+
+* copy contents of prebuilt directory instead of directory itself ([3286d27](https://github.com/Meierschlumpf/homarr/commit/3286d27c2105c9bdb2ecc04252bc611f520a50f2))
+
 ## [0.9.15](https://github.com/Meierschlumpf/homarr/compare/v0.9.14...v0.9.15) (2025-12-15)
 
 ### Bug Fixes
