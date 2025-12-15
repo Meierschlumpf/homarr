@@ -25,6 +25,9 @@ runs:
         context: ./deployments/prebuilt-debian
         platforms: linux/${{ inputs.architecture }}
         tags: prebuilt-debian
+    - name: List all images in local docker
+      run: docker image ls && exit 1
+      shell: bash
     - name: Start docker container for ${{ inputs.architecture }}
       run: |
         docker run --name prebuilt-debian \
