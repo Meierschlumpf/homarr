@@ -38,7 +38,8 @@ runs:
     - name: Extract source from ${{ inputs.architecture }} container (alpine)
       run: |
         docker exec homarr tar -czf extraction-alpine.tar.gz -C /app . && \
-        docker cp homarr:/app/extraction-alpine.tar.gz ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-alpine-${{ inputs.architecture }}.tar.gz
+        docker cp homarr:/app/extraction-alpine.tar.gz ${{ runner.temp }}/extraction/${{ inputs.architecture }}/source-alpine-${{ inputs.architecture }}.tar.gz && \
+        docker exec homarr rm /app/extraction-alpine.tar.gz
       shell: bash
     - name: Extract source from ${{ inputs.architecture }} container (debian)
       run: |
