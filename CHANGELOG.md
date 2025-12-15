@@ -1,3 +1,9 @@
+## [0.9.13](https://github.com/Meierschlumpf/homarr/compare/v0.9.12...v0.9.13) (2025-12-15)
+
+### Bug Fixes
+
+* trigger ci with new release ([d3a90eb](https://github.com/Meierschlumpf/homarr/commit/d3a90eb4bc3f3446a48bc68590d110ea7fdbfbc5))
+
 ## [0.9.12](https://github.com/Meierschlumpf/homarr/compare/v0.9.11...v0.9.12) (2025-12-12)
 
 ### Bug Fixes
