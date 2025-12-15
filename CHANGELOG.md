@@ -1,3 +1,9 @@
+## [0.9.15](https://github.com/Meierschlumpf/homarr/compare/v0.9.14...v0.9.15) (2025-12-15)
+
+### Bug Fixes
+
+* remove alpine-tar after extraction ([5e12bf1](https://github.com/Meierschlumpf/homarr/commit/5e12bf1e8d41edea7587f98faf07f79cb8d140dd))
+
 ## [0.9.14](https://github.com/Meierschlumpf/homarr/compare/v0.9.13...v0.9.14) (2025-12-15)
 
 ### Bug Fixes
