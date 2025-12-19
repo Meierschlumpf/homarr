@@ -1,3 +1,9 @@
+## [0.9.17](https://github.com/Meierschlumpf/homarr/compare/v0.9.16...v0.9.17) (2025-12-19)
+
+### Bug Fixes
+
+* try out different release types for on-release workflow ([373e788](https://github.com/Meierschlumpf/homarr/commit/373e78809fb4370272d64770555e7f6d8645d699))
+
 ## [0.9.16](https://github.com/Meierschlumpf/homarr/compare/v0.9.15...v0.9.16) (2025-12-15)
 
 ### Bug Fixes
