@@ -2,13 +2,15 @@ permissions: {}
 
 on:
   release:
-    types: [published]
+    types: [published, released, edited]
 
 jobs:
   trigger-docs-release:
     name: Trigger Documentation Release
     runs-on: ubuntu-latest
     steps:
+      - name: Echo release type
+        run: echo "${{ github.event.action }}"
       - name: Obtain token
         id: obtainToken
         uses: actions/create-github-app-token@v2
